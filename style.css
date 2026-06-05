@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 18px 10px 28px;
+  padding: 10px 6px 24px;
 }
 
 .page {
@@ -43,14 +43,15 @@ body {
 
 .video-area {
   position: absolute;
-  left: 17.2%;
-  top: 17.4%;
-  width: 65.6%;
-  height: 26.2%;
-  border-radius: 34px;
+  left: 17.5%;
+  top: 18.6%;
+  width: 65%;
+  height: 23.7%;
+  border-radius: 30px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 10px 24px rgba(81, 132, 170, 0.16);
+  background: transparent;
+  box-shadow: 0 8px 18px rgba(81, 132, 170, 0.10);
+  z-index: 3;
 }
 
 .invite-video {
@@ -58,7 +59,19 @@ body {
   height: 100%;
   display: block;
   object-fit: cover;
-  background: #f9f1e7;
+  object-position: center center;
+  transform: scale(1.26);
+  transform-origin: center center;
+  background: transparent;
+  pointer-events: none;
+}
+
+.video-lock {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: auto;
+  background: transparent;
 }
 
 .confirm-link {
@@ -69,6 +82,7 @@ body {
   height: 5.9%;
   border-radius: 999px;
   cursor: pointer;
+  z-index: 8;
 }
 
 .confirm-link:focus-visible {
@@ -91,7 +105,7 @@ body {
   height: calc(var(--size) * 0.42);
   opacity: var(--opacity);
   border-radius: 999px;
-  background: rgba(181, 221, 247, 0.45);
+  background: rgba(181, 221, 247, 0.42);
   filter: blur(0.2px);
   animation: cloudUp var(--duration) linear infinite;
   animation-delay: var(--delay);
@@ -102,7 +116,7 @@ body {
   content: "";
   position: absolute;
   border-radius: 50%;
-  background: rgba(181, 221, 247, 0.48);
+  background: rgba(181, 221, 247, 0.46);
 }
 
 .cloud::before {
@@ -130,7 +144,7 @@ body {
 
 @media (max-width: 600px) {
   body {
-    padding: 8px 4px 18px;
+    padding: 6px 2px 18px;
   }
 
   .invite-card {
@@ -138,6 +152,6 @@ body {
   }
 
   .video-area {
-    border-radius: 22px;
+    border-radius: 20px;
   }
 }
