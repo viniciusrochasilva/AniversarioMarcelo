@@ -1,16 +1,16 @@
 const cloudsContainer = document.querySelector('.clouds');
-const totalClouds = 20;
+const totalClouds = 28;
 
 function createCloud() {
   const cloud = document.createElement('span');
   cloud.className = 'cloud';
 
-  const size = 70 + Math.random() * 130;
+  const size = 55 + Math.random() * 125;
   const left = Math.random() * 100;
-  const duration = 13 + Math.random() * 18;
+  const duration = 10 + Math.random() * 16;
   const delay = -(Math.random() * duration);
-  const drift = (Math.random() * 120 - 60).toFixed(0) + 'px';
-  const opacity = 0.20 + Math.random() * 0.30;
+  const drift = `${Math.random() * 130 - 65}px`;
+  const opacity = 0.22 + Math.random() * 0.32;
 
   cloud.style.left = `${left}%`;
   cloud.style.setProperty('--size', `${size}px`);
@@ -25,27 +25,60 @@ function createCloud() {
 for (let i = 0; i < totalClouds; i++) createCloud();
 
 const video = document.getElementById('inviteVideo');
+const audioButton = document.getElementById('audioButton');
+const countdown = document.getElementById('countdown');
 
-function playVideo() {
+function playMutedVideo() {
   video.muted = true;
+  video.volume = 1;
   video.controls = false;
-  const playPromise = video.play();
-  if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => {
-      // Alguns navegadores só liberam após o primeiro toque na tela.
-    });
-  }
+  video.play().catch(() => {});
+}
+
+function hearMarcelinho() {
+  video.currentTime = 0;
+  video.muted = false;
+  video.volume = 1;
+  video.controls = false;
+  video.play().catch(() => {});
+  startBackgroundMusic();
+  audioButton.textContent = '🔊 Áudio ativado';
+  setTimeout(() => audioButton.classList.add('hidden'), 1200);
 }
 
 video.addEventListener('contextmenu', (event) => event.preventDefault());
-video.addEventListener('loadeddata', playVideo);
-document.addEventListener('DOMContentLoaded', playVideo);
-window.addEventListener('pageshow', playVideo);
+video.addEventListener('loadeddata', playMutedVideo);
+document.addEventListener('DOMContentLoaded', playMutedVideo);
+window.addEventListener('pageshow', playMutedVideo);
+audioButton.addEventListener('click', hearMarcelinho);
+
+// Contador regressivo para 09/07/2026 às 15h.
+function updateCountdown() {
+  const partyDate = new Date(2026, 6, 9, 15, 0, 0); // mês 6 = julho
+  const now = new Date();
+  const diff = partyDate - now;
+
+  if (diff <= 0) {
+    countdown.textContent = '🎉 Chegou o grande dia!';
+    return;
+  }
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdown.textContent = `Faltam ${days} dias, ${hours}h ${minutes}min ${seconds}s 🎈`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 /*
-  Canção de fundo baixinha gerada pelo próprio navegador.
-  Observação: celulares e navegadores podem bloquear áudio automático.
-  Por isso, o código tenta iniciar sozinho e também libera no primeiro toque/clique na tela.
+  Música de fundo baixinha gerada pelo próprio navegador.
+  Importante: navegadores bloqueiam áudio automático sem interação.
+  Por isso, a música e a voz são liberadas quando a pessoa toca no botão.
 */
 let musicStarted = false;
 let audioContext;
@@ -65,7 +98,7 @@ function startBackgroundMusic() {
 
   audioContext = new AudioContextClass();
   masterGain = audioContext.createGain();
-  masterGain.gain.value = 0.035;
+  masterGain.gain.value = 0.025;
   masterGain.connect(audioContext.destination);
 
   let index = 0;
@@ -84,24 +117,19 @@ function startBackgroundMusic() {
       osc.frequency.value = freq;
 
       noteGain.gain.setValueAtTime(0, audioContext.currentTime);
-      noteGain.gain.linearRampToValueAtTime(0.22, audioContext.currentTime + 0.08);
-      noteGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.70);
+      noteGain.gain.linearRampToValueAtTime(0.18, audioContext.currentTime + 0.08);
+      noteGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.72);
 
       osc.connect(noteGain);
       noteGain.connect(masterGain);
       osc.start();
-      osc.stop(audioContext.currentTime + 0.76);
+      osc.stop(audioContext.currentTime + 0.78);
     }
 
-    setTimeout(playNote, 850);
+    setTimeout(playNote, 900);
   }
 
   audioContext.resume().then(playNote).catch(() => {
     musicStarted = false;
   });
 }
-
-startBackgroundMusic();
-document.addEventListener('click', startBackgroundMusic, { once: true });
-document.addEventListener('touchstart', startBackgroundMusic, { once: true });
-document.addEventListener('keydown', startBackgroundMusic, { once: true });
