@@ -7,8 +7,8 @@
   <title>Marcelo - 1 Aninho</title>
   <meta name="description" content="Convite virtual do Marcelo - 1 aninho. Confirme sua presença!" />
 
-  <!-- CAPA DO WHATSAPP / REDES SOCIAIS
-       Depois de subir no GitHub Pages, troque o content abaixo pelo link completo da imagem.
+  <!-- IMPORTANTE PARA WHATSAPP:
+       Depois que subir no GitHub Pages, troque o content abaixo pelo link completo.
        Exemplo: https://seuusuario.github.io/convite-marcelo/capa-whatsapp.jpg -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Marcelo - 1 Aninho" />
@@ -29,8 +29,12 @@
     <section class="invite-card" aria-label="Convite virtual Marcelo 1 aninho">
       <img class="invite-img" src="convite.jpeg" alt="Convite de aniversário do Marcelo de 1 ano" />
 
-      <!-- Vídeo no espaço em branco acima do cachorrinho -->
-      <div class="video-area" aria-hidden="true">
+      <div class="countdown" id="countdown" aria-label="Contador para a festa">
+        Carregando contador...
+      </div>
+
+      <!-- Vídeo encaixado no espaço branco acima do cachorrinho -->
+      <div class="video-area">
         <video
           id="inviteVideo"
           class="invite-video"
@@ -44,8 +48,11 @@
           disablepictureinpicture
           controlslist="nodownload nofullscreen noremoteplayback"
         ></video>
-        <div class="video-lock"></div>
       </div>
+
+      <button class="audio-button" id="audioButton" type="button" aria-label="Ouvir Marcelinho falando">
+        🔊 Ouvir o Marcelinho falando
+      </button>
 
       <a
         class="confirm-link"
