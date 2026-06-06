@@ -4,65 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Marcelo - 1 Aninho</title>
-  <meta name="description" content="Convite virtual do Marcelo - 1 aninho. Confirme sua presença!" />
+  <title>Marcelo - 1 ano</title>
 
-  <!-- IMPORTANTE PARA WHATSAPP:
-       Depois que subir no GitHub Pages, troque o content abaixo pelo link completo.
-       Exemplo: https://seuusuario.github.io/convite-marcelo/capa-whatsapp.jpg -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Marcelo - 1 Aninho" />
-  <meta property="og:description" content="Será uma alegria ter você na minha festinha!" />
+  <meta property="og:title" content="Marcelo - 1 aninho" />
+  <meta property="og:description" content="Você está convidado para minha festinha!" />
   <meta property="og:image" content="capa-whatsapp.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1448" />
-  <meta property="og:image:height" content="1086" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#9fc8e8" />
+  <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="clouds" aria-hidden="true"></div>
 
-  <main class="page">
-    <section class="invite-card" aria-label="Convite virtual Marcelo 1 aninho">
-      <img class="invite-img" src="convite.jpeg" alt="Convite de aniversário do Marcelo de 1 ano" />
+  <div class="nuvens"></div>
 
-      <div class="countdown" id="countdown" aria-label="Contador para a festa">
-        Carregando contador...
-      </div>
+  <main class="convite-area">
 
-      <!-- Vídeo encaixado no espaço branco acima do cachorrinho -->
-      <div class="video-area">
-        <video
-          id="inviteVideo"
-          class="invite-video"
-          src="video.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          poster="capa-whatsapp.jpg"
-          disablepictureinpicture
-          controlslist="nodownload nofullscreen noremoteplayback"
-        ></video>
-      </div>
+    <img src="convite.jpeg" class="convite" alt="Convite Marcelo 1 ano" />
 
-      <button class="audio-button" id="audioButton" type="button" aria-label="Ouvir Marcelinho falando">
-        🔊 Ouvir o Marcelinho falando
-      </button>
+    <div class="video-box">
+      <video
+        id="videoConvite"
+        src="video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline>
+      </video>
+    </div>
 
-      <a
-        class="confirm-link"
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAANpUWvtUNDhCTFRQM0RSRlcxNzZXTVlGRlY5R0NCTi4u"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Confirmar presença"
-      ></a>
-    </section>
+    <button id="playAudio" class="audio-btn">
+      🎙️ Ouvir o Marcelinho falando
+    </button>
+
+    <div id="contador" class="contador"></div>
+
+    <a
+      class="btn-confirmar"
+      href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAANpUWvtUNDhCTFRQM0RSRlcxNzZXTVlGRlY5R0NCTi4u"
+      target="_blank">
+      Confirmar presença
+    </a>
+
   </main>
+
+  <audio id="musicaFundo" loop>
+    <source src="musica.mp3" type="audio/mpeg" />
+  </audio>
 
   <script src="script.js"></script>
 </body>
