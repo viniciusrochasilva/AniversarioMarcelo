@@ -4,29 +4,25 @@ const musica = document.getElementById("musicaFundo");
 const contador = document.getElementById("contador");
 const areaNuvens = document.getElementById("nuvens");
 
-// vídeo começa parado e sem controles
-video.removeAttribute("controls");
 video.loop = false;
-video.muted = false;
+video.controls = false;
+video.pause();
 
-// botão executa vídeo + música
 botaoAudio.addEventListener("click", () => {
+  video.pause();
   video.currentTime = 0;
   video.muted = false;
   video.play();
 
-  musica.volume = 0.07;
+  musica.volume = 0.05;
   musica.play().catch(() => {});
-
-  botaoAudio.style.display = "none";
 });
 
-// quando o vídeo terminar, o botão aparece de novo
 video.addEventListener("ended", () => {
-  botaoAudio.style.display = "block";
+  video.pause();
+  video.currentTime = 0;
 });
 
-// contador
 function atualizarContador() {
   const dataFesta = new Date("2026-07-09T15:00:00");
   const agora = new Date();
@@ -48,7 +44,6 @@ function atualizarContador() {
 setInterval(atualizarContador, 1000);
 atualizarContador();
 
-// criar nuvens subindo
 function criarNuvem() {
   const nuvem = document.createElement("div");
   nuvem.classList.add("cloud");
@@ -71,8 +66,8 @@ function criarNuvem() {
   }, (duracao + atraso) * 1000);
 }
 
-setInterval(criarNuvem, 1800);
+setInterval(criarNuvem, 1600);
 
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 10; i++) {
   criarNuvem();
 }
