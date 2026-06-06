@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcelo - 1 Aninho</title>
 
-  <title>Marcelo - 1 ano</title>
+  <meta property="og:title" content="Marcelo - 1 Aninho">
+  <meta property="og:description" content="Você está convidado para minha festinha!">
+  <meta property="og:image" content="capa-whatsapp.jpg">
+  <meta property="og:type" content="website">
 
-  <meta property="og:title" content="Marcelo - 1 aninho" />
-  <meta property="og:description" content="Você está convidado para minha festinha!" />
-  <meta property="og:image" content="capa-whatsapp.jpg" />
-  <meta property="og:type" content="website" />
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="nuvens"></div>
+  <div id="nuvens"></div>
 
   <main class="convite-area">
 
-    <img src="convite.jpeg" class="convite" alt="Convite Marcelo 1 ano" />
+    <img src="convite.jpeg" class="convite" alt="Convite Marcelo">
+
+    <div id="contador" class="contador"></div>
 
     <div class="video-box">
-      <video
-        id="videoConvite"
-        src="video.mp4"
-        autoplay
-        muted
-        loop
-        playsinline>
-      </video>
+      <video id="videoConvite" src="video.mp4" playsinline></video>
     </div>
 
     <button id="playAudio" class="audio-btn">
       🎙️ Ouvir o Marcelinho falando
     </button>
-
-    <div id="contador" class="contador"></div>
 
     <a
       class="btn-confirmar"
@@ -48,9 +40,7 @@
 
   </main>
 
-  <audio id="musicaFundo" loop>
-    <source src="musica.mp3" type="audio/mpeg" />
-  </audio>
+  <audio id="musicaFundo" src="musica.mp3" loop></audio>
 
   <script src="script.js"></script>
 </body>
