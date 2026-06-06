@@ -15,7 +15,7 @@ body {
   position: relative;
   width: min(100%, 760px);
   margin: 0 auto;
-  z-index: 2;
+  z-index: 20;
 }
 
 .convite {
@@ -23,76 +23,76 @@ body {
   display: block;
 }
 
-/* Contador no topo, em cima do urso */
 .contador {
   position: absolute;
-  top: 7.8%;
+  top: 1.7%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 30;
+  z-index: 50;
 
   background: rgba(255,255,255,.96);
   color: #4f8fc9;
 
-  padding: 8px 18px;
-  border-radius: 30px;
+  padding: 8px 20px;
+  border-radius: 25px;
 
   font-size: 15px;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
 
-  box-shadow: 0 5px 16px rgba(0,0,0,.18);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
 }
 
-/* Vídeo mais encaixado na nuvem superior */
 .video-box {
   position: absolute;
-  top: 17.3%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
 
-  width: 48%;
-  height: 12.8%;
+  width: 64%;
+  height: 18%;
 
-  border-radius: 20px;
   overflow: hidden;
-  z-index: 20;
+  border-radius: 28px;
 
+  z-index: 30;
   background: #fff;
-  box-shadow: 0 8px 22px rgba(0,0,0,.22);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,.22);
 }
 
 .video-box video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   pointer-events: none;
 }
 
-/* Botão abaixo do vídeo */
 .audio-btn {
   position: absolute;
-  top: 31.2%;
+  top: 38%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 35;
 
-  border: none;
-  border-radius: 40px;
-  padding: 11px 24px;
+  z-index: 45;
 
-  background: #6fa8dc;
+  background: #6da7e8;
   color: white;
 
-  font-size: 15px;
+  border: none;
+  border-radius: 50px;
+
+  padding: 12px 25px;
+
+  font-size: 16px;
   font-weight: bold;
 
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,.25);
 
-  animation: pulse 1.5s infinite;
+  box-shadow: 0 6px 15px rgba(0,0,0,.20);
+  animation: pulse 1.8s infinite;
 }
 
 .btn-confirmar {
@@ -100,20 +100,22 @@ body {
   bottom: 3.2%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 40;
+
+  z-index: 60;
 
   width: 34%;
   height: 5.3%;
+
   opacity: 0;
 }
 
-/* Nuvens visíveis subindo */
+/* Nuvens */
 #nuvens {
   position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  z-index: 15;
 }
 
 .cloud {
@@ -157,6 +159,7 @@ body {
     transform: translateY(0) scale(1);
     opacity: .85;
   }
+
   to {
     transform: translateY(-125vh) scale(1.25);
     opacity: 0;
@@ -167,9 +170,11 @@ body {
   0% {
     transform: translateX(-50%) scale(1);
   }
+
   50% {
     transform: translateX(-50%) scale(1.06);
   }
+
   100% {
     transform: translateX(-50%) scale(1);
   }
@@ -177,21 +182,21 @@ body {
 
 @media (max-width: 600px) {
   .contador {
-    top: 7.5%;
+    top: 1.6%;
     font-size: 11px;
     padding: 7px 13px;
   }
 
   .video-box {
-    top: 17.5%;
-    width: 49%;
-    height: 12.5%;
-    border-radius: 14px;
+    top: 18%;
+    width: 64%;
+    height: 18%;
+    border-radius: 18px;
   }
 
   .audio-btn {
-    top: 31.2%;
+    top: 38%;
     font-size: 11px;
-    padding: 8px 14px;
+    padding: 9px 15px;
   }
 }
