@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Marcelo - 1 Aninho</title>
 
-  <!-- WhatsApp -->
   <meta property="og:title" content="Marcelo - 1 Aninho">
   <meta property="og:description" content="Você está convidado para minha festinha!">
   <meta property="og:image" content="capa-whatsapp.jpg">
   <meta property="og:type" content="website">
-
-  <!-- iPhone -->
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -26,49 +19,36 @@
 
   <main class="convite-area">
 
-    <!-- Convite -->
     <img src="convite.jpeg" class="convite" alt="Convite Marcelo">
 
-    <!-- Contador -->
     <div id="contador" class="contador"></div>
 
-    <!-- Vídeo -->
     <div class="video-box">
+      <img id="capaVideo" src="capa-video.jpg" alt="Capa do vídeo">
+
       <video
         id="videoConvite"
         src="video.mp4"
-        poster="capa-video.jpg"
         playsinline
-        preload="auto">
+        preload="metadata">
       </video>
     </div>
 
-    <!-- Botão áudio -->
     <button id="playAudio" class="audio-btn">
       🧸 Ouça o meu Recadinho
     </button>
 
-    <!-- Confirmação -->
     <a
       class="btn-confirmar"
       href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAANpUWvtUNDhCTFRQM0RSRlcxNzZXTVlGRlY5R0NCTi4u"
-      target="_blank"
-      aria-label="Confirmar Presença">
+      target="_blank">
       Confirmar presença
     </a>
 
   </main>
 
-  <!-- Música de fundo -->
-  <audio
-    id="musicaFundo"
-    src="musica.mp3"
-    loop
-    preload="auto">
-  </audio>
+  <audio id="musicaFundo" src="musica.mp3" loop preload="auto"></audio>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
