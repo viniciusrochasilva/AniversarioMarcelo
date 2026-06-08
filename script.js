@@ -19,7 +19,7 @@ botaoAudio.addEventListener("click", () => {
 
   video.play().catch(() => {});
 
-  musica.volume = 0.05;
+  musica.volume = 0.02;
   musica.play().catch(() => {});
 });
 
