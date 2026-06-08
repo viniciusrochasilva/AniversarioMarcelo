@@ -1,4 +1,5 @@
 const video = document.getElementById("videoConvite");
+const capa = document.getElementById("capaVideo");
 const botaoAudio = document.getElementById("playAudio");
 const musica = document.getElementById("musicaFundo");
 const contador = document.getElementById("contador");
@@ -9,6 +10,9 @@ video.controls = false;
 video.pause();
 
 botaoAudio.addEventListener("click", () => {
+  capa.style.display = "none";
+  video.style.display = "block";
+
   video.pause();
   video.currentTime = 0;
   video.muted = false;
@@ -22,12 +26,15 @@ botaoAudio.addEventListener("click", () => {
 video.addEventListener("ended", () => {
   video.pause();
   video.currentTime = 0;
-  video.load();
+
+  video.style.display = "none";
+  capa.style.display = "block";
 });
 
 function atualizarContador() {
   const dataFesta = new Date("2026-07-09T15:00:00");
   const agora = new Date();
+
   const diferenca = dataFesta - agora;
 
   if (diferenca <= 0) {
